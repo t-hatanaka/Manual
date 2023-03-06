@@ -1,0 +1,145 @@
+{
+  "sitemap": {
+    "fileOptions": {
+      "api/*": {
+        "changefreq": "daily"
+      }
+    },
+    "baseUrl": "https://Synesthesias.github.io/PlateauUESDK/",
+    "changefreq": "weekly"
+  },
+  "homepages": [],
+  "source_base_path": "/Users/m-takeda/Project/Proj_Proposition/Proj_Propsition_2022/VolumeShapeGenerator/GitHubClone/PLATEAU-UC22-003-CADCENTER/PLATEAU-UC22-003-volume-shape-generator-Manual",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "jijF2xz4oTTFs3qdt0eEIhDz5auJKrYmbXnv7fPGK+I="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/ApplicationGuide.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/ApplicationGuide.html",
+          "hash": "UfIgJRCig5Ugqt9FekrBpd0bii+pJtYbuAslNDl4Zhw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/Installation.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/Installation.html",
+          "hash": "p3rD94FdR+v5afLnterJ1TkfTOt+VEJaWiJYT2Wlcu4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html",
+          "hash": "yrMXh5V7A4vlXgovkUJTK6T4ym2WgkX6PJzo9FVtwXs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/index/applicationWindow.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/index/applicationWindow.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/manual.meta",
+      "output": {
+        "resource": {
+          "relative_path": "resources/manual.meta"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/manual/ApplicationGuide/F01.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/manual/ApplicationGuide/F01.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/manual/ApplicationGuide/F02.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/manual/ApplicationGuide/F02.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/manual/installation/applicationWindow.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/manual/installation/applicationWindow.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/manual/installation/distFolder.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/manual/installation/distFolder.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "torbzyZYAO9c5e0wKnkgsb/bXMuHNFHzJjanHG7O0nM="
+        }
+      },
+      "version": ""
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

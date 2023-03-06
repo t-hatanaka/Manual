@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://t-hatanaka.github.io/PLATEAU-UC22-003-volume-shape-generator/index.html</loc>
+    <lastmod>2023-03-06T02:25:25+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://t-hatanaka.github.io/PLATEAU-UC22-003-volume-shape-generator/manual/ApplicationGuide.html</loc>
+    <lastmod>2023-03-06T02:25:25+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://t-hatanaka.github.io/PLATEAU-UC22-003-volume-shape-generator/manual/Installation.html</loc>
+    <lastmod>2023-03-06T02:25:25+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

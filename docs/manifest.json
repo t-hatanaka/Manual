@@ -5,11 +5,11 @@
         "changefreq": "daily"
       }
     },
-    "baseUrl": "https://t-hatanaka.github.io/PLATEAU-UC22-003-volume-shape-generator-Manual/",
+    "baseUrl": "https://t-hatanaka.github.io/PLATEAU-UC22-003-volume-shape-generator/",
     "changefreq": "weekly"
   },
   "homepages": [],
-  "source_base_path": "/Users/m-takeda/Project/Proj_Proposition/Proj_Propsition_2022/VolumeShapeGenerator/GitHubClone/PLATEAU-UC22-003-CADCENTER/PLATEAU-UC22-003-volume-shape-generator-Manual",
+  "source_base_path": "/Users/m-takeda/Project/Proj_Proposition/Proj_Propsition_2022/VolumeShapeGenerator/MANUAL/Manual/PLATEAU-UC22-003-volume-shape-generator-Manual",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -26,7 +26,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "jijF2xz4oTTFs3qdt0eEIhDz5auJKrYmbXnv7fPGK+I="
+          "hash": "og1Xje4gM4ijWNOw4GErVn/Ytqbfo7OqJGgFEMGzF9s="
         }
       },
       "version": ""
@@ -37,7 +37,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/ApplicationGuide.html",
-          "hash": "UfIgJRCig5Ugqt9FekrBpd0bii+pJtYbuAslNDl4Zhw="
+          "hash": "hdnDW5ob7Y8hhfeh+zUBQ9WluupQUHnMKsUesoBndPU="
         }
       },
       "version": ""
@@ -48,7 +48,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/Installation.html",
-          "hash": "p3rD94FdR+v5afLnterJ1TkfTOt+VEJaWiJYT2Wlcu4="
+          "hash": "qzFers4w5LK8k8/wBSVLO86hQKAevEkflw0CLqJe9F0="
         }
       },
       "version": ""

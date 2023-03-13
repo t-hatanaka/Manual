@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>利用方法 | Volume Shape Generator </title>
+      <title>API仕様 | Volume Shape Generator </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="利用方法 | Volume Shape Generator ">
+      <meta name="title" content="API仕様 | Volume Shape Generator ">
     
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -76,65 +76,36 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="利用方法">利用方法</h1>
+<h1 id="api仕様">API仕様</h1>
 
-<p>このページではアプリケーションの利用方法について記載します。</p>
-<h2 id="アプリケーションの概要">アプリケーションの概要</h2>
-<ul>
-<li>建築物情報を受け取り、建築可能な建物の最大ボリュームと既存建築物の差分を3Dモデルを生成します。</li>
-<li>建築物の3Dモデルデータの生成や、隣地斜線制限などの条件に従いモデルの加工を行う必要があるため、ブラウザ上で動くリアルタイム3Dエンジンの<code>Babylon.js</code>を使用しています。</li>
-<li>生成した3Dモデルから、容積値の算出とGLB形式の書き出しを行います。</li>
-<li>本アプリケーションでは機能確認用のサンプルを用意しています。仮のJSON情報から3Dモデルを生成し、容積の数値表示とGLBファイルのダウンロードをテストできます。</li>
-</ul>
-<h2 id="3dモデルデータ生成に必要な情報">3Dモデルデータ生成に必要な情報</h2>
-<p>3Dオブジェクトを生成するには既存建築物の以下の情報が必要になります。</p>
-<ul>
-<li>敷地面積、階高、容積率
-<ul>
-<li>建物形状の高さの上限の算出に使用します。</li>
-</ul>
-</li>
-<li>建物形状のローカル座標
-<ul>
-<li>建物のフットプリント座標から建物形状のモデルデータを生成します。このモデルデータから、各種制限によるブーリアン処理を行います。</li>
-</ul>
-</li>
-<li>隣地斜線制限面ローカル座標、道路斜線制限面ローカル座標
-<ul>
-<li>制限面座標から建物形状のカッティング処理に必要なモデルを生成しブーリアン処理を行います。</li>
-</ul>
-</li>
-<li>地域の高さ制限
-<ul>
-<li>敷地面積、階高、容積率から算出する高さ上限より優先される高さ制限値です。</li>
-</ul>
-</li>
-<li>元のビルの高さ
-<ul>
-<li>建築可能な建物の最大ボリュームと既存建築物の差分を表すために使用します。</li>
-</ul>
-</li>
-</ul>
-<p>建築物の情報はJSONで受け取り、定義されている<code>BuildingParam</code>という型エイリアスに格納されます。<br>
-本プロジェクトではサンプルとして<code>buildingParamSample.ts</code>ファイルにテスト用のJSONテキストデータを用意しています。</p>
 <h2 id="apiの概要">APIの概要</h2>
-<p><code>src/service/api/VolumeShapeGenerator.ts</code>ファイルの関数を利用します。</p>
+<p><code>src/service/api/VolumeShapeGenerator.ts</code>ファイルの関数を利用し
+容積値とGLBファイルの取得、Babylon.jsのScene上のObjectを破棄を行うことができます。</p>
 <ul>
 <li>容積値とGLBの取得は<code>getVolumeShapesData</code>関数を利用します。</li>
 <li>Babylon.jsのScene上のObjectを破棄する場合は<code>disposeObject</code>関数を利用します。</li>
 </ul>
 <h2 id="apiの処理の流れ">APIの処理の流れ</h2>
-<p>APIの引数に渡すデータを用意します。</p>
+<h3 id="getvolumeshapesdata関数">getVolumeShapesData関数</h3>
+<p>関数の引数に渡すデータを用意します。</p>
 <ul>
-<li>生成に必要な建物情報のJSONを用意します。</li>
+<li>建築可能な建物の最大ボリュームと既存建築物の差分のモデル生成に必要な建物情報のJSONを用意します。
+<ul>
+<li>JSON作成に関しては「生成条件を指定したボリューム生成」のページの「3Dモデルデータ生成に必要な情報」の章を参照ください。</li>
+</ul>
+</li>
 <li>Babylon.js上で3Dモデルの加工処理を行うため、Babylon.jsのSceneを生成します。</li>
 </ul>
-<p>APIを実行します。</p>
+<p>関数を実行します。</p>
 <ul>
 <li><code>src/service/api/VolumeShapeGenerator.ts</code>の<code>getVolumeShapesData</code>関数を実行します。
 <ul>
-<li>建物情報のJSONテキスト、<code>Babylon.js</code>の<code>Scene</code>、容積計算の詳細値、その他、取得するGLBファイルのPrefixやテストモードフラグのパラメータを引数として入力します。</li>
-<li>容積計算の詳細値は容積の精度に関わります。デフォルトは0.05です。値が小さい程詳細な計算を行いますが処理時間に影響します。</li>
+<li>建物情報のJSONテキスト、<code>Babylon.js</code>の<code>Scene</code>、容積計算の詳細値、その他、取得するGLBファイルのPrefixやテストモードフラグのパラメータを引数として入力します。
+<ul>
+<li>容積計算の詳細値、取得するGLBファイルのPrefix、テストモードフラグにはデフォルト値が割り当てられていますので入力しなくても実行可能です。</li>
+<li>容積計算の詳細値は容積の精度に関わります。値が小さい程詳細な計算を行いますが処理時間に影響します。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -169,16 +140,12 @@
 </li>
 </ul>
 <p>取得した各容積値とGLBをAPI実行の結果として返します。</p>
-<h2 id="機能確認用サンプル">機能確認用サンプル</h2>
-<p><code>src/main.ts</code>から<code>src/sample/VolumeShapeGenerateController.ts</code>の<code>startOperation</code>関数が呼ばれサンプルがスタートします。
-サンプル用のBabylon.jsのSceneとJSONテキストを引数としてAPIを実行し、容積値とGLBを受け取ります。
-データの受け取りが成功すると、容積値の結果を表示します</p>
-<p><img src="../resources/manual/ApplicationGuide/F01.png" alt=""></p>
-<p>GLBのダウンロードボタンが表示されます。
-ダウンロードボタンをクリックすると端末にGLBファイルがダウンロードされます。</p>
-<p><img src="../resources/manual/ApplicationGuide/F02.png" alt=""></p>
-<p>実際にブラウザで確認するにはProjectのRootからコマンド<code>npm run dev</code>を実行するか<code>npm run build</code>実行後に<code>npm run preview</code>を実行します。
-指定されたローカルサーバーのURLをブラウザで開き、サンプルの確認を行う事ができます。</p>
+<h3 id="disposeobject関数">disposeObject関数</h3>
+<p>Babylon.jsのScene上のObjectを破棄します。</p>
+<ul>
+<li>第一引数にBABYLON.Sceneを入れます。</li>
+<li>破棄しないObjectがある場合は第二引数のstring配列にObject名を入れます。</li>
+</ul>
 </article>
           </div>
 
@@ -187,7 +154,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/t-hatanaka/Manual/blob/gh-pages/PLATEAU-UC22-003-volume-shape-generator-Manual/manual/ApplicationGuide.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/t-hatanaka/Manual/blob/gh-pages/PLATEAU-UC22-003-volume-shape-generator-Manual/manual/APISpecifications.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

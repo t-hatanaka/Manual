@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>生成条件を指定したボリューム生成 | Volume Shape Generator </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="生成条件を指定したボリューム生成 | Volume Shape Generator ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="生成条件を指定したボリューム生成">生成条件を指定したボリューム生成</h1>
+
+<p>必要な建物情報をJSON形式にし、APIの<code>getVolumeShapesData</code>関数に渡すことで生成条件を指定したボリューム生成を行うことができます。</p>
+<h2 id="3dモデルデータ生成に必要な情報">3Dモデルデータ生成に必要な情報</h2>
+<p>3Dオブジェクトを生成するには既存建築物の以下の情報が必要になります。</p>
+<ul>
+<li>敷地面積、階高、容積率
+<ul>
+<li>建物形状の高さの上限の算出に使用します。</li>
+</ul>
+</li>
+<li>建物形状のローカル座標
+<ul>
+<li>建物のフットプリント座標から建物形状のモデルデータを生成します。このモデルデータから、各種制限によるブーリアン処理を行います。</li>
+</ul>
+</li>
+<li>隣地斜線制限面ローカル座標、道路斜線制限面ローカル座標
+<ul>
+<li>制限面座標から建物形状のカッティング処理に必要なモデルを生成しブーリアン処理を行います。</li>
+</ul>
+</li>
+<li>地域の高さ制限
+<ul>
+<li>敷地面積、階高、容積率から算出する高さ上限より優先される高さ制限値です。</li>
+</ul>
+</li>
+<li>元のビルの高さ
+<ul>
+<li>建築可能な建物の最大ボリュームと既存建築物の差分を表すために使用します。</li>
+</ul>
+</li>
+</ul>
+<p>建築物情報のJSONデータをAPIの関数に渡すと、本アプリケーションで定義されている<code>BuildingParam</code>という型エイリアスに格納されます。<br></p>
+<pre><code class="lang-typescript">type BuildingParam = {
+  siteArea: number //敷地面積
+  building: BABYLON.Vector3[] //建物形状ローカル座標
+  syasenPlanes: BABYLON.Vector3[][] //道路外側斜線制限面ローカル
+  rinchPlanes: BABYLON.Vector3[][] //隣地斜線制限面ローカル
+  citygml_me: number //元のビルの高さに相当
+  far: number //容積率
+  kaidaka: number //階高
+  maxLimitH: number | null //生成する建物の高さをこの値で制限.容積率より優先
+}
+</code></pre>
+<p>JSONファイル作成は機能確認用サンプルでも利用している<code>buildingParamSample.ts</code>ファイル内のJSONテキストデータを参考にして下さい。</p>
+<h2 id="ボリューム生成と確認">ボリューム生成と確認</h2>
+<p>アプリケーションが用意している機能確認用サンプルの表示方法で、生成条件を指定したボリュームを確認する場合は下記手順を行って下さい。</p>
+<ul>
+<li>確認用サンプルでは<code>src/sample</code>ディレクトリ内の<code>VolumeShapeGenerateController</code>クラスの<code>startOperation</code>関数内で<code>BuildingParamSample</code>クラスの<code>getParamsJsonText</code>関数を実行しJSONデータ取得処理を行っています。</li>
+<li>生成条件を指定したボリューム生成を確認用サンプルの表示方法で確認したい場合は、
+指定した生成条件に従ってJSONデータを作成し、
+確認用サンプルのJSON取得処理部分を、作成したJSONデータを取得するように変更してボリューム生成を行います。</li>
+<li>「サンプルデータを使ったボリューム生成」で紹介しました<code>$ npm run dev</code>コマンドで確認することができます。</li>
+</ul>
+<p>指定した生成条件に従い生成したボリュームから容積値とGLBファイルを取得する機能だけが必要な場合は、
+<code>src/service</code>ディレクトリ内のボリューム生成、データ取得機能とAPI機能のみ使用します。</p>
+<ul>
+<li>src下の<code>index.html</code>、<code>main.ts</code>、<code>style.css</code>はプロジェクトに合うように適宜変更して下さい。</li>
+<li>「APIの概要」ページを確認し、<code>src/service/api/VolumeShapeGenerator.ts</code>ファイルの関数に必要なデータを引数として渡し容積値とGLBファイルを取得して下さい。</li>
+</ul>
+<h2 id="ソースコードのビルド">ソースコードのビルド</h2>
+<p><code>$ npm run dev</code>コマンドによる開発用ローカルサーバーでの確認だけでなく、
+アプリケーションを本番環境で実行する場合は<code>$ npm run build</code>コマンドでソースコードをビルドします。</p>
+<p>コマンドラインを操作します。<code>volume-shape-generator</code>に移動し以下のコマンドを実行します。</p>
+<pre><code>$ npm run build
+</code></pre>
+<p><code>volume-shape-generator</code>ディレクトリ下に<code>dist</code>フォルダが作られ本番用に最適化されたコードが書き出されます。</p>
+<p><img src="../resources/manual/conditionalVolumeGeneration/distFolder.png" alt=""></p>
+<p>ビルドが成功したら下記コマンドを実行しプレビュー用のサーバー上で確認ができます。</p>
+<pre><code>$ npm run preview
+</code></pre>
+<p><code>npm run preview</code>コマンドは、ソースコードをビルドしてプレビュー用の環境で実行するために使用されます。
+通常、<code>npm run dev</code>コマンドよりも本番環境に近い環境でアプリケーションを確認することができます。</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/t-hatanaka/Manual/blob/gh-pages/PLATEAU-UC22-003-volume-shape-generator-Manual/manual/ConditionalVolumeGeneration.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      Volume Shape Generator
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

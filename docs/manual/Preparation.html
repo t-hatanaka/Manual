@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>インストール | Volume Shape Generator </title>
+      <title>事前準備：璟境構築 | Volume Shape Generator </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="インストール | Volume Shape Generator ">
+      <meta name="title" content="事前準備：璟境構築 | Volume Shape Generator ">
     
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -76,42 +76,51 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="インストール">インストール</h1>
+<h1 id="事前準備璟境構築">事前準備：璟境構築</h1>
 
+<h2 id="githubのリポジトリのクローン">GitHubのリポジトリのクローン</h2>
+<ul>
+<li><p>Volume Shape Generatorのリポジトリのページにアクセスします。<br></p>
+</li>
+<li><p>ページの右側にある「Code」ボタンをクリックするとドロップダウンメニューが表示されます。<br></p>
+</li>
+<li><p>gitコマンドでリポジトリをクローンする場合はドロップダウンメニュー「HTTPS」をクリックします。</p>
+<ul>
+<li>gitコマンドを利用する場合は予めgitをインストールしている必要があります。
+<ul>
+<li><a href="https://git-scm.com/downloads">gitをこちらからダウンロードし、インストールします。</a></li>
+</ul>
+</li>
+<li>クローンするリポジトリのURLが表示されるのでコピーします。</li>
+<li>コマンドラインを開き、クローンするディレクトリに移動します。</li>
+<li>以下のコマンドを入力するとリポジトリのクローンが始まります。</li>
+</ul>
+</li>
+</ul>
+<pre><code>$ git clone &lt;クローンするリポジトリのURL&gt;
+</code></pre>
+<ul>
+<li>gitコマンドを利用しない場合はZipファイルをダウンロードします。 ドロップダウンメニューの「Download ZIP」をクリックします。
+<ul>
+<li>ダウンロードしたZipファイルを展開します。</li>
+</ul>
+</li>
+</ul>
 <h2 id="nodejsのインストール">Node.jsのインストール</h2>
 <ul>
 <li>Volume Shape GeneratorはNode.jsを使用しています。<br>
 Node.jsがインストールされていない場合は、以下URLからインストールしてください。
 <ul>
-<li><a href="https://nodejs.org/ja/">Node.jsをこちらからインストールします。</a></li>
+<li><a href="https://nodejs.org/ja/">Node.jsをこちらからダウンロードし、インストールします。</a></li>
 </ul>
 </li>
 </ul>
 <h2 id="パッケージのインストール">パッケージのインストール</h2>
+<p><code>npm install</code>コマンドで、Volume Shape Generatorに必要なパッケージをインストールします。</p>
 <ul>
-<li>ターミナルを操作します。プロジェクトルート<code>volume-shape-generator</code>に移動し、以下のコマンドでパッケージのインストールを行います。</li>
+<li>コマンドラインを操作します。<code>volume-shape-generator</code>ディレクトリに移動し、以下のコマンドでパッケージのインストールを行います。</li>
 </ul>
 <pre><code>$ npm install
-</code></pre>
-<h2 id="開発環境での起動確認">開発環境での起動確認</h2>
-<p>ターミナルを操作します。プロジェクトルート<code>volume-shape-generator</code>から以下のコマンドを実行します。</p>
-<pre><code>$ npm run dev
-</code></pre>
-<p>ローカルサーバーが立ち上がります。表示されたURLをブラウザで開きアプリの起動を確認できます。</p>
-<pre><code>  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h to show help
-
-</code></pre>
-<p><img src="../resources/manual/installation/applicationWindow.png" alt=""></p>
-<h2 id="アプリのビルド">アプリのビルド</h2>
-<p>ターミナルを操作します。プロジェクトルート<code>volume-shape-generator</code>から以下のコマンドを実行します。</p>
-<pre><code>$ npm run build
-</code></pre>
-<p>プロジェクトルート直下に<code>dist</code>フォルダが作られアプリが書き出されます。</p>
-<p><img src="../resources/manual/installation/distFolder.png" alt=""></p>
-<p>buildが成功したら下記コマンドを実行しローカルサーバーで確認ができます。</p>
-<pre><code>npm run preview
 </code></pre>
 </article>
           </div>
@@ -121,7 +130,7 @@ Node.jsがインストールされていない場合は、以下URLからイン�
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/t-hatanaka/Manual/blob/gh-pages/PLATEAU-UC22-003-volume-shape-generator-Manual/manual/Installation.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/t-hatanaka/Manual/blob/gh-pages/PLATEAU-UC22-003-volume-shape-generator-Manual/manual/Preparation.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

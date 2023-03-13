@@ -78,8 +78,31 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="volume-shape-generator">Volume Shape Generator</h1>
 
-<p>このパッケージには、建築可能な建物の最大ボリュームと既存建築物の差分を3Dで可視化するためのAPIとサンプルが含まれます。</p>
 <p><img src="resources/index/applicationWindow.png" alt=""></p>
+<h2 id="アプリケーション概要">アプリケーション概要</h2>
+<ul>
+<li>建築物情報をJSON形式で受け取り、建築可能な建物の最大ボリュームと既存建築物の差分を3Dモデルを生成します。</li>
+<li>建築物の3Dモデルデータの生成や、隣地斜線制限などの条件に従いモデルの加工を行う必要があるため、ブラウザ上で動くリアルタイム3Dエンジンの<code>Babylon.js</code>を使用しています。</li>
+<li>生成した3Dモデルから、容積値の算出とGLB形式の書き出しを行います。</li>
+<li>本アプリケーションでは機能確認用のサンプルを用意しています。SampleのJSON情報から3Dモデルを生成し、容積の数値表示とGLBファイルのダウンロードをテストできます。</li>
+</ul>
+<h2 id="アプリの定義">アプリの定義</h2>
+<p>Volume Shape Generatorは以下の機能を有したアプリケーションです。</p>
+<ul>
+<li>ボリューム生成処理を行い、生成したボリュームから容積値とGLBファイルを取得する機能。</li>
+<li>上記ボリューム生成、データ取得を呼び出すAPI機能。</li>
+<li>API機能を使ってサンプルの建築物データからボリューム生成処理を行い、
+生成したボリュームの容積値の表示とGLBファイルのダウンロードを行う画面を表示する機能確認用サンプル</li>
+</ul>
+<p>各機能のソースコードは以下のディレクトリに格納されています。</p>
+<ul>
+<li>ボリューム生成機能、API機能のソースコードは<code>src/service</code>ディレクトリに格納されています。</li>
+<li>確認用サンプルのソースコードは<code>src/sample</code>ディレクトリに格納されています。
+<ul>
+<li>src下の<code>index.html</code>、<code>main.ts</code>、<code>style.css</code>ファイルはアプリケーションを実行した際にサンプルが実行されるように記述しています。</li>
+</ul>
+</li>
+</ul>
 </article>
           </div>
 

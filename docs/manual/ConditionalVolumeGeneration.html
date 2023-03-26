@@ -319,29 +319,30 @@
 <li>citygml_me<br>
 元のビルの高さを入力します。<br>
 入力する値の単位はメートルです。
-元のビルの高さは余剰容積ボリュームを算定する対象の建物の高さのことで、地盤面からルーフまでの高さを指します。
-この高さで建物形状の高さを押上ポリゴン生成で作成します。</li>
+元のビルの高さは余剰容積ボリュームを算定する対象の建物の高さのことで、地盤面からルーフまでの高さを指します。</li>
 </ul>
 <p><img src="../resources/manual/conditionalVolumeGeneration/originBldgHeight.png" alt=""></p>
 <ul>
-<li><p>far<br>
+<li>far<br>
 容積率を入力します。<br>
 入力する値の単位はパーセントです。
-容積率とは敷地面積に対する建物の延べ床面積の割合です。<br></p>
-</li>
-<li><p>kaidaka<br>
+容積率とは敷地面積に対する建物の延べ床面積の割合です。<br></li>
+</ul>
+<p><img src="../resources/manual/conditionalVolumeGeneration/floorAreaRatio.png" alt=""></p>
+<ul>
+<li>kaidaka<br>
 階高を入力します。
 入力する値の単位はメートルです。
-階高は建物の各階の高さです。</p>
-</li>
+階高は建物の各階の高さです。</li>
 </ul>
 <p><img src="../resources/manual/conditionalVolumeGeneration/kaidaka.png" alt=""></p>
 <ul>
 <li>maxLimitH<br>
-生成する容積ボリュームの最高高さの制限値を指定します。
+生成する容積ボリュームの最高の高さの制限値を指定します。
 入力する値の単位はメートルです。
 地区計画などで、地域ごとに建物高さの最大値が指定されている場合は、ここにその最大値を指定します。</li>
 </ul>
+<p><img src="../resources/manual/conditionalVolumeGeneration/maxLimitH.png" alt=""></p>
 <p>建築物情報のJSONデータをAPIの関数に渡すと、本アプリケーションで定義されている<code>BuildingParam</code>という型エイリアスに格納されます。<br></p>
 <pre><code class="lang-typescript">type BuildingParam = {
   siteArea: number //敷地面積

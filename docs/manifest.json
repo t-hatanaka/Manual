@@ -48,7 +48,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/ConditionalVolumeGeneration.html",
-          "hash": "RGQNxQ/bQyrkomvzA4655Ro1Vf6twE8IeolVwHxwYwc="
+          "hash": "wjeWHs9Z+3pCK6KEK6/mvZbHH9OL4GuvfozEd7V87Qo="
         }
       },
       "version": ""
@@ -152,16 +152,6 @@
       "output": {
         "resource": {
           "relative_path": "resources/manual/conditionalVolumeGeneration/foot.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "resources/manual/conditionalVolumeGeneration/foot2.png",
-      "output": {
-        "resource": {
-          "relative_path": "resources/manual/conditionalVolumeGeneration/foot2.png"
         }
       },
       "version": ""

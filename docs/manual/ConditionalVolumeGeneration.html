@@ -102,7 +102,7 @@
 <li>敷地面積、階高、容積率から算出する高さ上限より優先される高さ制限値です。</li>
 </ul>
 </li>
-<li>元のビルの高さ
+<li>算定対象の建物の高さ
 <ul>
 <li>建築可能な建物の最大ボリュームと既存建築物の差分を表すために使用します。</li>
 </ul>
@@ -113,7 +113,9 @@
 生成条件を指定したボリューム生成を行う場合はこのようなJSONファイルをご用意下さい。</p>
 <pre><code class="lang-json5">[
   {
+    //敷地面積
     &quot;siteArea&quot;: 64.54208,
+    //建物形状ローカル座標
     &quot;building&quot;: [
       {
         &quot;x&quot;: 4.874860211275518,
@@ -161,6 +163,7 @@
         &quot;z&quot;: 0
       }
     ],
+    //道路外側斜線制限面ローカル座標
     &quot;syasenPlanes&quot;: [
       [
         {
@@ -185,6 +188,7 @@
         }
       ]
     ],
+    //隣地斜線制限面ローカル座標
     &quot;rinchPlanes&quot;: [
       [
         {
@@ -238,9 +242,13 @@
         }
       ]
     ],
+    //算定対象の建物の高さ
     &quot;citygml_me&quot;: 17.554,
+    //容積率
     &quot;far&quot;: 479.7,
+    //階高
     &quot;kaidaka&quot;: 5.5,
+    //生成する建物の高さをこの値で制限。容積率より優先
     &quot;maxLimitH&quot;: null
   }
 ]
@@ -307,9 +315,9 @@
 <p><img src="../resources/manual/conditionalVolumeGeneration/rinchiCut.png" alt=""></p>
 <ul>
 <li>citygml_me<br>
-元のビルの高さを入力します。<br>
-入力する値の単位はメートルです。
-元のビルの高さは余剰容積ボリュームを算定する対象の建物の高さのことで、地盤面からルーフまでの高さを指します。</li>
+算定対象の建物の高さを入力します。
+入力する値の単位はメートルです。<br>
+これは余剰容積ボリュームを算定する対象の建物の高さのことで、地盤面から既存のルーフまでの高さを指します。</li>
 </ul>
 <p><img src="../resources/manual/conditionalVolumeGeneration/originBldgHeight.png" alt=""></p>
 <ul>
@@ -322,13 +330,13 @@
 <ul>
 <li>kaidaka<br>
 階高を入力します。
-入力する値の単位はメートルです。
-階高は建物の各階の高さです。</li>
+入力する値の単位はメートルです。<br>
+階高は建物の各階の高さで、フロアに依らず一定の高さになります。</li>
 </ul>
 <p><img src="../resources/manual/conditionalVolumeGeneration/kaidaka.png" alt=""></p>
 <ul>
 <li>maxLimitH<br>
-生成する容積ボリュームの最高の高さの制限値を指定します。
+生成する容積ボリュームの最大高さの制限値を指定します。
 入力する値の単位はメートルです。
 地区計画などで、地域ごとに建物高さの最大値が指定されている場合は、ここにその最大値を指定します。</li>
 </ul>
@@ -337,12 +345,12 @@
 <pre><code class="lang-typescript">type BuildingParam = {
   siteArea: number //敷地面積
   building: BABYLON.Vector3[] //建物形状ローカル座標
-  syasenPlanes: BABYLON.Vector3[][] //道路外側斜線制限面ローカル
-  rinchPlanes: BABYLON.Vector3[][] //隣地斜線制限面ローカル
-  citygml_me: number //元のビルの高さに相当
+  syasenPlanes: BABYLON.Vector3[][] //道路外側斜線制限面ローカル座標
+  rinchPlanes: BABYLON.Vector3[][] //隣地斜線制限面ローカル座標
+  citygml_me: number //算定対象の建物の高さ
   far: number //容積率
   kaidaka: number //階高
-  maxLimitH: number | null //生成する建物の高さをこの値で制限.容積率より優先
+  maxLimitH: number | null //生成する建物の高さをこの値で制限。容積率より優先
 }
 </code></pre>
 <h2 id="ボリューム生成と確認">ボリューム生成と確認</h2>

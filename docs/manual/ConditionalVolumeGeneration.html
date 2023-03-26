@@ -247,16 +247,17 @@
 </code></pre>
 <p>各パラメーターに関して説明します。</p>
 <ul>
-<li><p>siteArea<br>
+<li>siteArea<br>
 敷地面積を入力します。
 入力する値の単位は平方メートルです。<br>
-敷地面積は、容積率と掛け算して、最大の延べ床面積を算出し、階数（建物高さ）の最大値を算定するために使用します。</p>
-</li>
-<li><p>building<br>
+敷地面積は、容積率と掛け算して、最大の延べ床面積を算出し、階数（建物高さ）の最大値を算定するために使用します。</li>
+</ul>
+<p><img src="../resources/manual/conditionalVolumeGeneration/siteArea.png" alt=""></p>
+<ul>
+<li>building<br>
 フットプリント(敷地に対する建築の占有領域)の中心を原点(x:0, y:0, z:0)とし、 フットプリントのポリゴンの各頂点座標を入力します。<br>
 座標は平面座標系(Z方向が高さを表します)、単位はメートルで入力します。<br>
-この座標配列から高さ方向に押し出しポリゴン生成方式で建物形状のモデルデータを生成します。</p>
-</li>
+この座標配列から高さ方向に押し出しポリゴン生成方式で建物形状のモデルデータを生成します。</li>
 </ul>
 <p><img src="../resources/manual/conditionalVolumeGeneration/foot.png" alt=""></p>
 <ul>

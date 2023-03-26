@@ -48,7 +48,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/ConditionalVolumeGeneration.html",
-          "hash": "wjeWHs9Z+3pCK6KEK6/mvZbHH9OL4GuvfozEd7V87Qo="
+          "hash": "IKPuijpUEvffpER7nXQU7oSBVxtRDlAOuKLiU+UAt2U="
         }
       },
       "version": ""
@@ -232,6 +232,16 @@
       "output": {
         "resource": {
           "relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut5.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/manual/conditionalVolumeGeneration/siteArea.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/manual/conditionalVolumeGeneration/siteArea.png"
         }
       },
       "version": ""

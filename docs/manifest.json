@@ -48,7 +48,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/ConditionalVolumeGeneration.html",
-          "hash": "kYqUiQX1JM/q6mFSx3gZiU6LPH3P828ba9Hv4fF8nL8="
+          "hash": "bxba8Mt7qFq6sITSSkL/4CEpnN7RRgu3ySYDcsjYIgc="
         }
       },
       "version": ""
@@ -102,6 +102,26 @@
       "output": {
         "resource": {
           "relative_path": "resources/manual.meta"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/manual/conditionalVolumeGeneration/cut_ex1.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/manual/conditionalVolumeGeneration/cut_ex1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/manual/conditionalVolumeGeneration/cut_ex2.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/manual/conditionalVolumeGeneration/cut_ex2.png"
         }
       },
       "version": ""

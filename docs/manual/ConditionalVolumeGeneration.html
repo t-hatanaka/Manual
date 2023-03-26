@@ -247,24 +247,27 @@
 </code></pre>
 <p>各パラメーターに関して説明します。</p>
 <ul>
-<li><p>siteArea<br>
+<li>siteArea<br>
 敷地面積を入力します。
 入力する値の単位は平方メートルです。
-敷地面積は建物が建っている敷地全体の面積になります。</p>
-</li>
-<li><p>building<br>
+敷地面積は建物が建っている敷地全体の面積になります。</li>
+</ul>
+<p><img src="../resources/manual/conditionalVolumeGeneration/foot.png" alt=""></p>
+<ul>
+<li>building<br>
 フットプリント(敷地に対する建築の占有領域)の中心を原点(x:0, y:0, z:0)とし、 フットプリントのポリゴンの各頂点座標を入力します。<br>
 座標は平面座標系(Z方向が高さを表します)、単位はメートルで入力します。<br>
-この座標配列から高さ方向に押し出しポリゴン生成方式で建物形状のモデルデータを生成します。</p>
-</li>
-<li><p>syasenPlanes<br>
+この座標配列から高さ方向に押し出しポリゴン生成方式で建物形状のモデルデータを生成します。</li>
+</ul>
+<p><img src="../resources/manual/conditionalVolumeGeneration/foot2.png" alt=""></p>
+<ul>
+<li>syasenPlanes<br>
 道路外側斜線制限平面のローカル座標を入力します。<br>
 座標は平面座標系(Z方向が高さを表します)、単位はメートルで入力します。<br>
 斜線制限とは道路境界線または隣地境界線からの距離に応じて建築物の各部分の高さを制限することにより、
 道路や隣地の採光、通風を確保し、圧迫感を和らげるものです。
 フットプリントの中心を原点(x:0, y:0, z:0)とし、
-斜線制限の領域を空間内で平面として表す斜線制限平面のポリゴンの各頂点座標を入力します。</p>
-</li>
+斜線制限の領域を空間内で平面として表す斜線制限平面のポリゴンの各頂点座標を入力します。</li>
 </ul>
 <pre><code class="lang-json">  [
     {
@@ -292,24 +295,35 @@
 <p>斜線制限が複数ある場合は全て入力します。<br>
 この座標配列から高さ方向に押し出しポリゴン生成方式でカット範囲のモデルデータを作成し、建物形状のモデルデータをカットします。
 <br></p>
+<p>下図は道路斜線制限平面のイメージです。<br></p>
+<p><img src="../resources/manual/conditionalVolumeGeneration/syasenPlane.png" alt=""></p>
 <p>下図はカットする範囲のイメージです。<br>
-赤色のモデルが道路外側斜線制限平面の座標配列を元に作成したカット範囲のモデルデータです。</p>
+赤色のモデルが道路外側斜線制限平面の座標配列を元に高さ方向に押し出し生成したカット範囲のモデルデータです。</p>
 <p><img src="../resources/manual/conditionalVolumeGeneration/cut_ex1.png" alt=""></p>
 <p>建物形状と重なる部分がカットされます。</p>
 <p><img src="../resources/manual/conditionalVolumeGeneration/cut_ex2.png" alt=""></p>
 <ul>
-<li><p>rinchPlanes<br>
+<li>rinchPlanes<br>
 隣地斜線制限平面のローカル座標を入力します。<br>
 座標は平面座標系(Z方向が高さを表します)、単位はメートルで入力します。<br>
 道路外側斜線制限平面の場合と同様にフットプリントの中心を原点(x:0, y:0, z:0)とし、
-斜線制限の領域を空間内で平面として表す斜線制限平面のポリゴンの各頂点座標を入力します。</p>
-</li>
-<li><p>citygml_me<br>
+斜線制限の領域を空間内で平面として表す斜線制限平面のポリゴンの各頂点座標を入力します。</li>
+</ul>
+<p><img src="../resources/manual/conditionalVolumeGeneration/rinchiCut1.png" alt=""></p>
+<p><img src="../resources/manual/conditionalVolumeGeneration/rinchiCut2.png" alt=""></p>
+<p><img src="../resources/manual/conditionalVolumeGeneration/rinchiCut3.png" alt=""></p>
+<p>複数の制限平面があればそれぞれ処理されていきます。</p>
+<p><img src="../resources/manual/conditionalVolumeGeneration/rinchiCut4.png" alt=""></p>
+<p><img src="../resources/manual/conditionalVolumeGeneration/rinchiCut5.png" alt=""></p>
+<ul>
+<li>citygml_me<br>
 元のビルの高さを入力します。<br>
 入力する値の単位はメートルです。
 元のビルの高さは余剰容積ボリュームを算定する対象の建物の高さのことで、地盤面からルーフまでの高さを指します。
-この高さで建物形状の高さを押上ポリゴン生成で作成します。</p>
-</li>
+この高さで建物形状の高さを押上ポリゴン生成で作成します。</li>
+</ul>
+<p><img src="../resources/manual/conditionalVolumeGeneration/originBldgHeight.png" alt=""></p>
+<ul>
 <li><p>far<br>
 容積率を入力します。<br>
 入力する値の単位はパーセントです。
@@ -320,11 +334,13 @@
 入力する値の単位はメートルです。
 階高は建物の各階の高さです。</p>
 </li>
-<li><p>maxLimitH<br>
+</ul>
+<p><img src="../resources/manual/conditionalVolumeGeneration/kaidaka.png" alt=""></p>
+<ul>
+<li>maxLimitH<br>
 生成する容積ボリュームの最高高さの制限値を指定します。
 入力する値の単位はメートルです。
-地区計画などで、地域ごとに建物高さの最大値が指定されている場合は、ここにその最大値を指定します。</p>
-</li>
+地区計画などで、地域ごとに建物高さの最大値が指定されている場合は、ここにその最大値を指定します。</li>
 </ul>
 <p>建築物情報のJSONデータをAPIの関数に渡すと、本アプリケーションで定義されている<code>BuildingParam</code>という型エイリアスに格納されます。<br></p>
 <pre><code class="lang-typescript">type BuildingParam = {

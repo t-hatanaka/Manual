@@ -48,7 +48,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/ConditionalVolumeGeneration.html",
-          "hash": "EZZMP0TzwuOs/NYaYgKHKjMC8pthG8lpKv6h+umbGYE="
+          "hash": "O/4obmgcVmhWLUeVjGaRMcF4IdArc+CFUZs744ZgLI8="
         }
       },
       "version": ""
@@ -102,26 +102,6 @@
       "output": {
         "resource": {
           "relative_path": "resources/manual.meta"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "resources/manual/conditionalVolumeGeneration/cut_ex1.png",
-      "output": {
-        "resource": {
-          "relative_path": "resources/manual/conditionalVolumeGeneration/cut_ex1.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "resources/manual/conditionalVolumeGeneration/cut_ex2.png",
-      "output": {
-        "resource": {
-          "relative_path": "resources/manual/conditionalVolumeGeneration/cut_ex2.png"
         }
       },
       "version": ""
@@ -188,50 +168,10 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut1.png",
+      "source_relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut.png",
       "output": {
         "resource": {
-          "relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut1.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut2.png",
-      "output": {
-        "resource": {
-          "relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut2.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut3.png",
-      "output": {
-        "resource": {
-          "relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut3.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut4.png",
-      "output": {
-        "resource": {
-          "relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut4.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut5.png",
-      "output": {
-        "resource": {
-          "relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut5.png"
+          "relative_path": "resources/manual/conditionalVolumeGeneration/rinchiCut.png"
         }
       },
       "version": ""
@@ -248,10 +188,10 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "resources/manual/conditionalVolumeGeneration/syasenPlane2.png",
+      "source_relative_path": "resources/manual/conditionalVolumeGeneration/syasenPlane01.png",
       "output": {
         "resource": {
-          "relative_path": "resources/manual/conditionalVolumeGeneration/syasenPlane2.png"
+          "relative_path": "resources/manual/conditionalVolumeGeneration/syasenPlane01.png"
         }
       },
       "version": ""
